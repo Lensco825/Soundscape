@@ -24,7 +24,9 @@ transform: rotate(360deg);
 
 .navComponents {
     font-size: 25px;
-    gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
 }
 
 .navComponents  img {
