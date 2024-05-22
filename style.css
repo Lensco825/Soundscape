@@ -31,3 +31,16 @@ transform: rotate(360deg);
 border-radius: 50%;
 width: 30px;
 }
+
+.themeToggle {
+    cursor: pointer;
+}
+
+.darkBody {
+    background-color: #181818;
+    color: white;
+}
+
+.themeToggle[name="sunny"] {
+    color: yellow;
+}
