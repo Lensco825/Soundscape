@@ -46,3 +46,23 @@ width: 30px;
 .themeToggle[name="sunny"] {
     color: yellow;
 }
+
+.musicContainer {
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    background-color: rgba(217, 217, 217, 0.33);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.coverImg {
+    border-radius: 5px;
+    width: 180px;
+    height: 180px;
+    background-image: url("https://i.pinimg.com/564x/34/af/48/34af48f51e0bb7bd00139aa312516e4a.jpg");
+    background-size: cover;
+}
+
