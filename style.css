@@ -1,0 +1,28 @@
+nav {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 0 10px;
+}
+
+.small-logo {
+    font-size: 2rem;
+}
+
+.small-logo img {
+    width: 24px;
+    position: absolute;
+    top: 35px;
+    left: 35px;
+}
+
+.navComponents {
+    font-size: 25px;
+    gap: 10px;
+}
+
+.navComponents  img {
+border-radius: 50%;
+width: 30px;
+}
