@@ -1,3 +1,7 @@
+:root {
+    --progressWidth: 20%;
+}
+
 nav {
     height: 50px;
     display: flex;
@@ -77,18 +81,17 @@ width: 30px;
     height: inherit;
     border-radius: inherit;
     background-color: black;
-    width: 20%;
-    position: relative;
+    width: var(--progressWidth);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-
-.progressBar::after {
-    content: '';
-    width: 20px;
-    height: 20px;
-    background-color: inherit;
+.scrubber {
+    width: 13px;
+    height: 13px;
+    background-color: black;
     border-radius: 50%;
-    position: absolute;
-    left: 50px;
-    top: -7px;
+    position: relative;
+    right: 0;
 }
