@@ -66,3 +66,29 @@ width: 30px;
     background-size: cover;
 }
 
+.progressContainer {
+    width: 300px;
+    border-radius: 25px;
+    height: 6px;
+    background-color: white;
+}
+
+.progressBar {
+    height: inherit;
+    border-radius: inherit;
+    background-color: black;
+    width: 20%;
+    position: relative;
+}
+
+
+.progressBar::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: inherit;
+    border-radius: 50%;
+    position: absolute;
+    left: 50px;
+    top: -7px;
+}
