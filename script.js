@@ -29,6 +29,20 @@ function moveProgress() {
 
 setInterval(moveProgress, 1000);
 
+function song(name, author, src) {
+    this.name = name;
+    this.author = author;
+    this.src = new Audio(src);
+}
+
+const onceInParis = new song("Once In Paris", "Pumpupthemind", "once-in-paris-168895.mp3");
+const forHer = new song("For Her", "Liderc", "for-her-chill-upbeat-summel-travel-vlog-and-ig-music-royalty-free-use-202298.mp3");
+const etheralVistas = new song("Etheral Vistas", "Denys_Brodovskyi", "ethereal-vistas-191254.mp3");
+const solitude = new song("Solitude", "lucafrancini", "solitude-dark-ambient-electronic-197737.mp3");
+const glossy = new song("Glossy", "Coma-Media", "glossy-168156.mp3");
+
+let songQue = [onceInParis, forHer, etheralVistas, solitude, glossy];
+
 playBtn.addEventListener('click', function() {
 
     if (!isPlaying) {
