@@ -107,6 +107,7 @@ main {
     border-radius: 50%;
     position: relative;
     right: 0;
+    opacity: 0;
 }
 
 .controls {

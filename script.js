@@ -3,6 +3,7 @@ var playBtn = document.getElementById('playPause');
 var skipForward = document.getElementById('playForward');
 var skipBack = document.getElementById('playBack');
 var progressBar = document.querySelector('.progressBar');
+var scrubber = document.querySelector('.scrubber');
 let isPlaying = false;
 var music = new Audio("once-in-paris-168895.mp3");
 
@@ -17,7 +18,13 @@ themeToggle.addEventListener('click', function() {
 })
 
 function moveProgress() {
-    progressBar.style.width = `${music.currentTime}%`
+    if (music.currentTime >= 8) {
+        scrubber.style.opacity = "1";
+    }
+    else {
+        scrubber.style.opacity = "0";
+    }
+    progressBar.style.width = `${(music.currentTime / music.duration)*100}%`;
 }
 
 setInterval(moveProgress, 1000);
@@ -41,7 +48,13 @@ playBtn.addEventListener('click', function() {
 })
 
 skipForward.addEventListener('click', function() {
-    music.currentTime = music.currentTime + 25;
+    if(music.currentTime + 25 > music.duration) {
+        music.currentTime = music.duration;
+    }
+    else {
+        music.currentTime = music.currentTime + 25;
+    }
+
     moveProgress();
 });
 
