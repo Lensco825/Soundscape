@@ -1,6 +1,6 @@
 var themeToggle = document.querySelector('.themeToggle');
 var playBtn = document.getElementById('playPause');
-var isPlaying = false;
+let isPlaying = false;
 
 themeToggle.addEventListener('click', function() {
     document.body.classList.toggle('darkBody');
@@ -16,10 +16,14 @@ playBtn.addEventListener('click', function() {
 
     if (!isPlaying) {
         isPlaying = true;
-        playBtn.setAttribut("name", "play");
+        playBtn.setAttribute("name", "play");
+        console.log("not playing");
+        return;
     }
-   else if (isPlaying) {
-        isPlaying = false;
-        playBtn.setAttribute("name", "pause");
-    }
+    if (isPlaying) {
+         isPlaying = false;
+         playBtn.setAttribute("name", "pause");
+         console.log("playing!")
+         return;
+     }
 })
