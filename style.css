@@ -1,7 +1,3 @@
-:root {
-    --progressWidth: 20%;
-}
-
 nav {
     height: 50px;
     display: flex;
@@ -75,7 +71,7 @@ main {
     border-radius: 5px;
     width: 180px;
     height: 180px;
-    background-image: url("https://i.pinimg.com/564x/34/af/48/34af48f51e0bb7bd00139aa312516e4a.jpg");
+    background-image: url("https://cdn.pixabay.com/audio/2024/02/04/10-16-16-251_200x200.png");
     background-size: cover;
 }
 
@@ -98,7 +94,7 @@ main {
     height: inherit;
     border-radius: inherit;
     background-color: black;
-    width: var(--progressWidth);
+    width: 0%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
