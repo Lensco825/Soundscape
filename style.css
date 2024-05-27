@@ -1,121 +1,121 @@
 nav {
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px 0 10px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 0 10px;
 }
 
 .small-logo {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .small-logo img {
-    width: 24px;
-    position: absolute;
-    top: 35px;
-    left: 35px;
-    transition: 0.5s;
+  width: 24px;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  transition: 0.5s;
 }
 
 .small-logo img:hover {
-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 .navComponents {
-    font-size: 25px;
-    display: flex;
-    align-items: center;
-    gap: 13px;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
 }
 
-.navComponents  img {
-border-radius: 50%;
-width: 30px;
+.navComponents img {
+  border-radius: 50%;
+  width: 30px;
 }
 
 .themeToggle {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .darkBody {
-    background-color: #181818;
-    color: white;
+  background-color: #181818;
+  color: white;
 }
 
 .themeToggle[name="sunny"] {
-    color: yellow;
+  color: yellow;
 }
 
 main {
-    width: 100%;
-    height: 50rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  height: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .musicContainer {
-    width: 350px;
-    height: 350px;
-    border-radius: 15px;
-    background-color: rgba(217, 217, 217, 0.33);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
+  width: 350px;
+  height: 350px;
+  border-radius: 15px;
+  background-color: rgba(217, 217, 217, 0.33);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .coverImg {
-    border-radius: 5px;
-    width: 180px;
-    height: 180px;
-    background-image: url("https://cdn.pixabay.com/audio/2024/02/04/10-16-16-251_200x200.png");
-    background-size: cover;
+  border-radius: 5px;
+  width: 180px;
+  height: 180px;
+  background-image: url("https://cdn.pixabay.com/audio/2024/02/04/10-16-16-251_200x200.png");
+  background-size: cover;
 }
 
 .audioController {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
 }
 
 .progressContainer {
-    width: 100%;
-    border-radius: 25px;
-    height: 3px;
-    background-color: white;
+  width: 100%;
+  border-radius: 25px;
+  height: 3px;
+  background-color: white;
 }
 
 .progressBar {
-    height: inherit;
-    border-radius: inherit;
-    background-color: black;
-    width: 0%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  height: inherit;
+  border-radius: inherit;
+  background-color: black;
+  width: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .scrubber {
-    width: 13px;
-    height: 13px;
-    background-color: black;
-    border-radius: 50%;
-    position: relative;
-    right: 0;
-    opacity: 0;
+  width: 13px;
+  height: 13px;
+  background-color: black;
+  border-radius: 50%;
+  position: relative;
+  right: 0;
+  opacity: 0;
 }
 
 .controls {
-    display: flex;
-    justify-content: space-evenly;
-    font-size: 35px;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 35px;
 }
 
 .controls ion-icon {
-    cursor: pointer;
+  cursor: pointer;
 }
