@@ -4,12 +4,15 @@ var skipForward = document.getElementById("playForward");
 var skipBack = document.getElementById("playBack");
 var progressBar = document.querySelector(".progressBar");
 var scrubber = document.querySelector(".scrubber");
+var coverImg = document.querySelector('.coverImg');
+var songName = document.querySelector('.songName');
 let isPlaying = false;
 
-function song(name, author, src) {
+function song(name, author, src, img) {
   this.name = name;
   this.author = author;
   this.src = new Audio(src);
+  this.img = img;
 }
 
 const onceInParis = new song(
@@ -20,19 +23,22 @@ const onceInParis = new song(
 const forHer = new song(
   "For Her",
   "Liderc",
-  "for-her-chill-upbeat-summel-travel-vlog-and-ig-music-royalty-free-use-202298.mp3"
+  "for-her-chill-upbeat-summel-travel-vlog-and-ig-music-royalty-free-use-202298.mp3",
+  "https://cdn.pixabay.com/audio/2024/04/14/22-20-51-951_200x200.jpg"
 );
 const etheralVistas = new song(
   "Etheral Vistas",
   "Denys_Brodovskyi",
-  "ethereal-vistas-191254.mp3"
+  "ethereal-vistas-191254.mp3",
+  "https://cdn.pixabay.com/audio/2024/02/14/21-04-08-947_200x200.png"
 );
 const solitude = new song(
   "Solitude",
   "lucafrancini",
-  "solitude-dark-ambient-electronic-197737.mp3"
+  "solitude-dark-ambient-electronic-197737.mp3",
+  "https://cdn.pixabay.com/audio/2024/03/22/19-00-46-73_200x200.jpg"
 );
-const glossy = new song("Glossy", "Coma-Media", "glossy-168156.mp3");
+const glossy = new song("Glossy", "Coma-Media", "glossy-168156.mp3", "https://cdn.pixabay.com/audio/2024/03/04/18-30-15-842_200x200.jpeg");
 
 let songQue = [onceInParis, forHer, etheralVistas, solitude, glossy];
 let currentIndex = 0;
@@ -99,6 +105,8 @@ function playNextAudio() {
       if (currentIndex < songQue.length) {
         currentSong.src = songQue[currentIndex].src;
         currentSong = songQue[currentIndex];
+        songName.textContent = songQue[currentIndex].name;
+        coverImg.style.backgroundImage = `url('${songQue[currentIndex].img}')`;
         currentSong.src.duration = 0;
         console.log(currentIndex);
         console.log(currentSong);
@@ -111,5 +119,5 @@ function playNextAudio() {
     }
 }
 
-setInterval(playNextAudio, 500);
+setInterval(playNextAudio, 300);
 
