@@ -5,7 +5,6 @@ var skipBack = document.getElementById("playBack");
 var progressBar = document.querySelector(".progressBar");
 var scrubber = document.querySelector(".scrubber");
 let isPlaying = false;
-var music = new Audio("once-in-paris-168895.mp3");
 
 function song(name, author, src) {
   this.name = name;
@@ -36,6 +35,8 @@ const solitude = new song(
 const glossy = new song("Glossy", "Coma-Media", "glossy-168156.mp3");
 
 let songQue = [onceInParis, forHer, etheralVistas, solitude, glossy];
+let currentIndex = 0;
+let currentSong = songQue[currentIndex];
 
 themeToggle.addEventListener("click", function () {
   document.body.classList.toggle("darkBody");
@@ -47,44 +48,68 @@ themeToggle.addEventListener("click", function () {
 });
 
 function moveProgress() {
-  if (music.currentTime >= 8) {
+  if (currentSong.src.currentTime >= 8) {
     scrubber.style.opacity = "1";
   } else {
     scrubber.style.opacity = "0";
   }
-  progressBar.style.width = `${(music.currentTime / music.duration) * 100}%`;
+  progressBar.style.width = `${(currentSong.src.currentTime / currentSong.src.duration) * 100}%`;
 }
 
 setInterval(moveProgress, 1000);
 
 playBtn.addEventListener("click", function () {
+    
   if (!isPlaying) {
     isPlaying = true;
     playBtn.setAttribute("name", "play");
     console.log("not playing");
-    music.pause();
+    currentSong.src.pause();
     return;
   }
   if (isPlaying) {
     isPlaying = false;
     playBtn.setAttribute("name", "pause");
     console.log("playing!");
-    music.play();
+    currentSong.src.play();
     return;
   }
 });
 
 skipForward.addEventListener("click", function () {
-  if (music.currentTime + 25 > music.duration) {
-    music.currentTime = music.duration;
+  if (currentSong.src.currentTime + 25 > currentSong.src.duration) {
+    currentSong.src.currentTime = currentSong.src.duration - 1;
   } else {
-    music.currentTime = music.currentTime + 25;
+    currentSong.src.currentTime = currentSong.src.currentTime + 25;
   }
 
   moveProgress();
 });
 
 skipBack.addEventListener("click", function () {
-  music.currentTime = music.currentTime - 25;
+  currentSong.src.currentTime = currentSong.src.currentTime - 25;
   moveProgress();
 });
+
+function playNextAudio() {
+  if (currentSong.src.currentTime >= currentSong.src.duration)
+    {
+      currentIndex++
+
+      if (currentIndex < songQue.length) {
+        currentSong.src = songQue[currentIndex].src;
+        currentSong = songQue[currentIndex];
+        currentSong.src.duration = 0;
+        console.log(currentIndex);
+        console.log(currentSong);
+        currentSong.src.play();
+        moveProgress();
+      }
+      else {
+        console.log("All songs have been played!");
+      }
+    }
+}
+
+setInterval(playNextAudio, 500);
+
