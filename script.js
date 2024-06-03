@@ -38,11 +38,16 @@ const solitude = new song(
   "solitude-dark-ambient-electronic-197737.mp3",
   "https://cdn.pixabay.com/audio/2024/03/22/19-00-46-73_200x200.jpg"
 );
+
+
 const glossy = new song("Glossy", "Coma-Media", "glossy-168156.mp3", "https://cdn.pixabay.com/audio/2024/03/04/18-30-15-842_200x200.jpeg");
 
 let songQue = [onceInParis, forHer, etheralVistas, solitude, glossy];
 let currentIndex = 0;
 let currentSong = songQue[currentIndex];
+
+songName.textContent = currentSong.name;
+coverImg.style.backgroundImage = currentSong.src;
 
 themeToggle.addEventListener("click", function () {
   document.body.classList.toggle("darkBody");
@@ -83,7 +88,7 @@ playBtn.addEventListener("click", function () {
 });
 
 skipForward.addEventListener("click", function () {
-  if (currentSong.src.currentTime + 25 > currentSong.src.duration) {
+  if (currentSong.src.currentTime + 25 >= currentSong.src.duration) {
     currentSong.src.currentTime = currentSong.src.duration - 1;
   } else {
     currentSong.src.currentTime = currentSong.src.currentTime + 25;
@@ -92,13 +97,19 @@ skipForward.addEventListener("click", function () {
   moveProgress();
 });
 
-skipBack.addEventListener("click", function () {
+
+skipBack.addEventListener("click", function () { 
   currentSong.src.currentTime = currentSong.src.currentTime - 25;
   moveProgress();
+
+  if (currentSong.src.currentTime - 25 <= 0) {
+    playBackAudio();
+  }
+
 });
 
 function playNextAudio() {
-  if (currentSong.src.currentTime >= currentSong.src.duration)
+if (currentSong.src.currentTime >= currentSong.src.duration)
     {
       currentIndex++
 
@@ -119,5 +130,23 @@ function playNextAudio() {
     }
 }
 
-setInterval(playNextAudio, 300);
+// function playBackAudio() {
+//       currentIndex--;
 
+//       if (currentSong.src.currentTime === 0) {
+        
+//         currentSong = songQue[currentIndex];
+//         currentSong.src = songQue[currentIndex].src;
+//         songName.textContent = songQue[currentIndex].name;
+//         coverImg.style.backgroundImage = `url('${currentSong.img}')`;
+//         currentSong.src.duration = 0;
+//         console.log(currentIndex);
+//         console.log(currentSong);
+//         moveProgress();
+//         currentSong.src.play();
+//       }
+//       }
+
+
+
+setInterval(playNextAudio, 300);
