@@ -8,6 +8,7 @@ var coverImg = document.querySelector('.coverImg');
 var songName = document.querySelector('.songName');
 let isPlaying = false;
 
+
 function song(name, author, src, img) {
   this.name = name;
   this.author = author;
@@ -18,7 +19,8 @@ function song(name, author, src, img) {
 const onceInParis = new song(
   "Once In Paris",
   "Pumpupthemind",
-  "once-in-paris-168895.mp3"
+  "once-in-paris-168895.mp3",
+  "https://cdn.pixabay.com/audio/2024/02/04/10-16-16-251_200x200.png"
 );
 const forHer = new song(
   "For Her",
@@ -43,9 +45,7 @@ const solitude = new song(
 const glossy = new song("Glossy", "Coma-Media", "glossy-168156.mp3", "https://cdn.pixabay.com/audio/2024/03/04/18-30-15-842_200x200.jpeg");
 
 let songQue = [onceInParis, forHer, etheralVistas, solitude, glossy];
-let currentIndex = 0;
-let currentSong = songQue[currentIndex];
-
+let currentSong = songQue[0];
 songName.textContent = currentSong.name;
 coverImg.style.backgroundImage = currentSong.src;
 
@@ -109,43 +109,40 @@ skipBack.addEventListener("click", function () {
 });
 
 function playNextAudio() {
+  let lastSong = songQue[0];
 if (currentSong.src.currentTime >= currentSong.src.duration)
     {
-      currentIndex++
 
-      if (currentIndex < songQue.length) {
-        currentSong.src = songQue[currentIndex].src;
-        currentSong = songQue[currentIndex];
-        songName.textContent = songQue[currentIndex].name;
-        coverImg.style.backgroundImage = `url('${songQue[currentIndex].img}')`;
+         songQue.shift();
+        songQue.push(lastSong);
+        currentSong.src = songQue[0].src;
+        currentSong = songQue[0];
+        songName.textContent = songQue[0].name;
+        coverImg.style.backgroundImage = `url('${songQue[0].img}')`;
         currentSong.src.duration = 0;
-        console.log(currentIndex);
+        console.log(songQue);
+        currentSong.src.play();
+        moveProgress();
+    }
+}
+
+function playBackAudio() {
+  let thisSong = songQue[4];
+      if (currentSong.src.currentTime <= 0 ) {
+        currentSong.src.pause();
+        songQue.pop(songQue[4]);
+        songQue.unshift(thisSong);
+        currentSong = songQue[0];
+        currentSong.src = songQue[0].src;
+        songName.textContent = songQue[0].name;
+        coverImg.style.backgroundImage = `url('${currentSong.img}')`;
+        currentSong.src.duration = 0;
+        console.log(songQue);
         console.log(currentSong);
         currentSong.src.play();
         moveProgress();
       }
-      else {
-        console.log("All songs have been played!");
       }
-    }
-}
-
-// function playBackAudio() {
-//       currentIndex--;
-
-//       if (currentSong.src.currentTime === 0) {
-        
-//         currentSong = songQue[currentIndex];
-//         currentSong.src = songQue[currentIndex].src;
-//         songName.textContent = songQue[currentIndex].name;
-//         coverImg.style.backgroundImage = `url('${currentSong.img}')`;
-//         currentSong.src.duration = 0;
-//         console.log(currentIndex);
-//         console.log(currentSong);
-//         moveProgress();
-//         currentSong.src.play();
-//       }
-//       }
 
 
 
