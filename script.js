@@ -7,7 +7,11 @@ var scrubber = document.querySelector(".scrubber");
 var coverImg = document.querySelector('.coverImg');
 var songName = document.querySelector('.songName');
 let isPlaying = false;
+var songQueues = document.querySelectorAll('.songQue');
+var songQueNames = document.querySelectorAll('.songQueName');
+var songQueArtists = document.querySelectorAll('.songQueArtist');
 
+console.log(songQueNames);
 
 function song(name, author, src, img) {
   this.name = name;
@@ -48,6 +52,12 @@ let songQue = [onceInParis, forHer, etheralVistas, solitude, glossy];
 let currentSong = songQue[0];
 songName.textContent = currentSong.name;
 coverImg.style.backgroundImage = currentSong.src;
+let songQueue = songQue.slice(0);
+
+for (let i = 0; i < songQueue.length; i++) {
+  songQueNames[i].textContent = songQueue[i].name;
+  songQueArtists[i].textContent = songQueue[i].author;
+}
 
 themeToggle.addEventListener("click", function () {
   document.body.classList.toggle("darkBody");
@@ -143,6 +153,7 @@ function playBackAudio() {
         moveProgress();
       }
       }
+
 
 
 
