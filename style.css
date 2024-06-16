@@ -134,12 +134,14 @@ main {
   right: 50px;
   width: 240px;
   height: 380px;
+  display: flex;
+  flex-direction: column;
 }
 
 .songQueList {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   padding: 2px;
   border: solid 2px blue;
   height: 85%;

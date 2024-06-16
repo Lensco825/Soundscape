@@ -10,6 +10,7 @@ let isPlaying = false;
 var songQueues = document.querySelectorAll('.songQue');
 var songQueNames = document.querySelectorAll('.songQueName');
 var songQueArtists = document.querySelectorAll('.songQueArtist');
+var queueImages = document.querySelectorAll('#songQueImage');
 
 console.log(songQueNames);
 
@@ -52,12 +53,13 @@ let songQue = [onceInParis, forHer, etheralVistas, solitude, glossy];
 let currentSong = songQue[0];
 songName.textContent = currentSong.name;
 coverImg.style.backgroundImage = currentSong.src;
-let songQueue = songQue.slice(0);
+let songQueue = songQue.slice(1);
 
-for (let i = 0; i < songQueue.length; i++) {
-  songQueNames[i].textContent = songQueue[i].name;
-  songQueArtists[i].textContent = songQueue[i].author;
-}
+// for (let i = 0; i < songQueue.length; i++) {
+//   songQueNames[i].textContent = songQueue[i].name;
+//   songQueArtists[i].textContent = songQueue[i].author;
+//   queueImages[i].setAttribute("src", `${songQue[i].img}`);
+// }
 
 themeToggle.addEventListener("click", function () {
   document.body.classList.toggle("darkBody");
