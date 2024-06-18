@@ -53,13 +53,12 @@ let songQue = [onceInParis, forHer, etheralVistas, solitude, glossy];
 let currentSong = songQue[0];
 songName.textContent = currentSong.name;
 coverImg.style.backgroundImage = currentSong.src;
-let songQueue = songQue.slice(1);
+let songQueue = [forHer, etheralVistas, solitude, glossy];
 
-for (let i = 0; i < songQueue.length; i++) {
-  songQueNames[i].textContent = songQueue[i].name;
-  songQueArtists[i].textContent = songQueue[i].author;
+for (let i = 0; i < songQue.length; i++) {
+  songQueNames[i].textContent = songQue[i].name;
+  songQueArtists[i].textContent = songQue[i].author;
   queueImages[i].setAttribute("src", `${songQue[i].img}`);
-  
 }
 
 themeToggle.addEventListener("click", function () {
@@ -134,8 +133,16 @@ if (currentSong.src.currentTime >= currentSong.src.duration)
         coverImg.style.backgroundImage = `url('${songQue[0].img}')`;
         currentSong.src.duration = 0;
         console.log(songQue);
+
+        for (let i = 0; i < songQue.length; i++) {
+          songQueNames[i].textContent = songQue[i].name;
+          songQueArtists[i].textContent = songQue[i].author;
+          queueImages[i].setAttribute("src", `${songQue[i].img}`);
+        }
         currentSong.src.play();
         moveProgress();
+
+
     }
 }
 
@@ -150,8 +157,15 @@ function playBackAudio() {
         songName.textContent = songQue[0].name;
         coverImg.style.backgroundImage = `url('${currentSong.img}')`;
         currentSong.src.duration = 0;
+        
+                for (let i = 0; i < songQue.length; i++) {
+                  songQueNames[i].textContent = songQue[i].name;
+                  songQueArtists[i].textContent = songQue[i].author;
+                  queueImages[i].setAttribute("src", `${songQue[i].img}`);
+                }
         console.log(songQue);
         console.log(currentSong);
+
         currentSong.src.play();
         moveProgress();
       }
