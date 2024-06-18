@@ -70,8 +70,36 @@ main {
   gap: 20px;
   flex: 0 0 auto;
   margin: 0 auto;
+  position: relative;
+  backdrop-filter: blur(115px);
 }
 
+
+.blob {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  filter: blur(60px);
+  z-index: -2;
+}
+
+.blob1 {
+  left: 50px;
+  top: 20px;
+  background-color: green;
+}
+
+.blob2 {
+  bottom: 130px;
+  left: 80px;
+}
+
+.blob3 {
+  right: 50px;
+  bottom: 50%;
+}
 .coverImg {
   border-radius: 5px;
   width: 180px;
@@ -181,9 +209,4 @@ main {
   width: 50px;
   height: 50px;
   border-radius: 10px;
-}
-
-
-.currentlyPlaying {
-  background-color: aquamarine;
 }
