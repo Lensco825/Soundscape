@@ -55,11 +55,12 @@ songName.textContent = currentSong.name;
 coverImg.style.backgroundImage = currentSong.src;
 let songQueue = songQue.slice(1);
 
-// for (let i = 0; i < songQueue.length; i++) {
-//   songQueNames[i].textContent = songQueue[i].name;
-//   songQueArtists[i].textContent = songQueue[i].author;
-//   queueImages[i].setAttribute("src", `${songQue[i].img}`);
-// }
+for (let i = 0; i < songQueue.length; i++) {
+  songQueNames[i].textContent = songQueue[i].name;
+  songQueArtists[i].textContent = songQueue[i].author;
+  queueImages[i].setAttribute("src", `${songQue[i].img}`);
+  
+}
 
 themeToggle.addEventListener("click", function () {
   document.body.classList.toggle("darkBody");
