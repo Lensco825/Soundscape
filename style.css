@@ -209,3 +209,18 @@ main {
   height: 50px;
   border-radius: 10px;
 }
+
+.origin {
+  position: absolute;
+  bottom: -40px;
+  right: 0;
+  z-index: 2;
+  font-family: 'Inter';
+  font-size: 13px;
+}
+
+
+.origin a {
+  color: #00AB6B;
+  text-decoration: none;
+}
