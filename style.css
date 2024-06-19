@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 nav {
   height: 50px;
@@ -73,7 +73,6 @@ main {
   position: relative;
 }
 
-
 .blob {
   width: 150px;
   height: 150px;
@@ -116,7 +115,7 @@ main {
 }
 
 .songName {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-size: 1.2rem;
 }
 
@@ -157,7 +156,6 @@ main {
   cursor: pointer;
 }
 
-
 .QueueContainer {
   right: 50px;
   width: 240px;
@@ -166,7 +164,12 @@ main {
   flex-direction: column;
   flex: 0 0 auto;
   margin-right: 0 auto;
-  font-family: 'Inter';
+  font-family: "Inter";
+}
+
+.QueueContainer > h2 {
+  border-bottom: solid;
+  padding: 2px;
 }
 
 .songQueList {
@@ -175,7 +178,6 @@ main {
   justify-content: space-evenly;
   width: 90%;
   padding: 2px;
-  border-top: solid 2px;
   height: 85%;
 }
 
@@ -191,7 +193,7 @@ main {
   margin: 0;
 }
 
-.songQue {
+.queueItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -200,11 +202,11 @@ main {
   border-radius: 5px;
 }
 
-.songQue:hover {
+.queueItem:hover {
   background-color: rgb(180, 180, 180);
 }
 
-.songQue > img {
+.queueItem > img {
   width: 50px;
   height: 50px;
   border-radius: 10px;
