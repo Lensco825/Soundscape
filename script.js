@@ -7,7 +7,7 @@ var scrubber = document.querySelector(".scrubber");
 var coverImg = document.querySelector(".coverImg");
 var songName = document.querySelector(".songName");
 
-let isPlaying = false;
+var isPlaying = false;
 
 var songQueNames = document.querySelectorAll(".songQueName");
 var songQueArtists = document.querySelectorAll(".songQueArtist");
@@ -32,32 +32,32 @@ function song(name, author, src, img) {
 const onceInParis = new song(
   "Once In Paris",
   "Pumpupthemind",
-  "once-in-paris-168895.mp3",
+  "resources/once-in-paris-168895.mp3",
   "https://cdn.pixabay.com/audio/2024/02/04/10-16-16-251_200x200.png"
 );
 const forHer = new song(
   "For Her",
   "Liderc",
-  "for-her-chill-upbeat-summel-travel-vlog-and-ig-music-royalty-free-use-202298.mp3",
+  "resources/for-her-chill-upbeat-summel-travel-vlog-and-ig-music-royalty-free-use-202298.mp3",
   "https://cdn.pixabay.com/audio/2024/04/14/22-20-51-951_200x200.jpg"
 );
 const etheralVistas = new song(
   "Etheral Vistas",
   "Denys_Brodovskyi",
-  "ethereal-vistas-191254.mp3",
+  "resources/ethereal-vistas-191254.mp3",
   "https://cdn.pixabay.com/audio/2024/02/14/21-04-08-947_200x200.png"
 );
 const solitude = new song(
   "Solitude",
   "lucafrancini",
-  "solitude-dark-ambient-electronic-197737.mp3",
+  "resources/solitude-dark-ambient-electronic-197737.mp3",
   "https://cdn.pixabay.com/audio/2024/03/22/19-00-46-73_200x200.jpg"
 );
 
 const glossy = new song(
   "Glossy",
   "Coma-Media",
-  "glossy-168156.mp3",
+  "resources/glossy-168156.mp3",
   "https://cdn.pixabay.com/audio/2024/03/04/18-30-15-842_200x200.jpeg"
 );
 
@@ -83,7 +83,6 @@ function reassign() {
   songName.textContent = songQue[0].name;
   coverImg.style.backgroundImage = `url('${songQue[0].img}')`;
   currentSong.src.duration = 0;
-  currentSong.src.play();
   moveProgress();
 }
 
@@ -114,16 +113,16 @@ setInterval(moveProgress, 1000);
 playBtn.addEventListener("click", function () {
   if (!isPlaying) {
     isPlaying = true;
-    playBtn.setAttribute("name", "play");
+    playBtn.setAttribute("name", "pause");
     console.log("not playing");
-    currentSong.src.pause();
+    currentSong.src.play();
     return;
   }
   if (isPlaying) {
     isPlaying = false;
-    playBtn.setAttribute("name", "pause");
+    playBtn.setAttribute("name", "play");
     console.log("playing!");
-    currentSong.src.play();
+    currentSong.src.pause();
     return;
   }
 });
@@ -156,6 +155,7 @@ function playNextAudio() {
     imageColors.shift();
     imageColors.push(lastColors);
     reassign();
+    currentSong.src.play();
   }
 }
 
@@ -168,6 +168,7 @@ function playBackAudio() {
     songQue.unshift(thisSong);
     imageColors.pop(imageColors[4]);
     imageColors.unshift(theseColors);
+    currentSong.src.play();
     reassign();
   }
 }

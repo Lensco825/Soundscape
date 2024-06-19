@@ -76,7 +76,6 @@ main {
 .blob {
   width: 150px;
   height: 150px;
-  background-color: red;
   border-radius: 50%;
   position: absolute;
   filter: blur(15px);
@@ -86,7 +85,6 @@ main {
 .blob1 {
   left: 50px;
   top: 20px;
-  background-color: green;
 }
 
 .blob2 {
