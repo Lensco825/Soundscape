@@ -14,6 +14,9 @@ var queueImages = document.querySelectorAll('#songQueImage');
 var blobs = document.querySelectorAll('.blob');
 var imageColors = [['245, 245, 233','178, 197, 205', '130, 86, 62'], ['206, 225, 163', '234, 178, 114', '216, 115, 64'], ['203, 131, 129', '139, 104, 110', '125, 151, 159'], ['61, 115, 111', '144, 159, 169', '32, 32, 48'], ['99, 108, 128', '92, 95, 105', '171, 161, 160']]
 
+blobs[0].style.backgroundColor = `rgb(${imageColors[0][0]})`;
+blobs[1].style.backgroundColor = `rgb(${imageColors[0][1]})`;
+blobs[2].style.backgroundColor = `rgb(${imageColors[0][2]})`;
 
 
 console.log(songQueNames);
@@ -127,11 +130,18 @@ skipBack.addEventListener("click", function () {
 
 function playNextAudio() {
   let lastSong = songQue[0];
+  let lastColors = imageColors[0];
 if (currentSong.src.currentTime >= currentSong.src.duration)
     {
 
          songQue.shift();
         songQue.push(lastSong);
+        imageColors.shift();
+        imageColors.push(lastColors);
+        console.log(imageColors);
+        blobs[0].style.backgroundColor = `rgb(${imageColors[0][0]})`;
+        blobs[1].style.backgroundColor = `rgb(${imageColors[0][1]})`;
+        blobs[2].style.backgroundColor = `rgb(${imageColors[0][2]})`;
         currentSong.src = songQue[0].src;
         currentSong = songQue[0];
         songName.textContent = songQue[0].name;
@@ -153,10 +163,16 @@ if (currentSong.src.currentTime >= currentSong.src.duration)
 
 function playBackAudio() {
   let thisSong = songQue[4];
+  let theseColors = imageColors[4];
       if (currentSong.src.currentTime <= 0 ) {
         currentSong.src.pause();
         songQue.pop(songQue[4]);
         songQue.unshift(thisSong);
+        imageColors.pop(imageColors[4]);
+        imageColors.unshift(theseColors);
+        blobs[0].style.backgroundColor = `rgb(${imageColors[0][0]})`;
+        blobs[1].style.backgroundColor = `rgb(${imageColors[0][1]})`;
+        blobs[2].style.backgroundColor = `rgb(${imageColors[0][2]})`;
         currentSong = songQue[0];
         currentSong.src = songQue[0].src;
         songName.textContent = songQue[0].name;
