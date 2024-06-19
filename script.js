@@ -12,10 +12,9 @@ var songQueNames = document.querySelectorAll('.songQueName');
 var songQueArtists = document.querySelectorAll('.songQueArtist');
 var queueImages = document.querySelectorAll('#songQueImage');
 var blobs = document.querySelectorAll('.blob');
-var imageColors = [['#DBEFF0','#6B554E', '#82563E'], ['#B25F20', '#E9E1AF', '#D4D69F'], ['#96A7AC', '#DDDCDD', '#CB8381'], ['#3E7771', '#161726', '#3B5C62'], ['#69788D', '#AAA29F', '#868A95', '#404755']]
+var imageColors = [['245, 245, 233','178, 197, 205', '130, 86, 62'], ['206, 225, 163', '234, 178, 114', '216, 115, 64'], ['203, 131, 129', '139, 104, 110', '125, 151, 159'], ['61, 115, 111', '144, 159, 169', '32, 32, 48'], ['99, 108, 128', '92, 95, 105', '171, 161, 160']]
 
-  
-console.log(imageColors[0][2]);
+
 
 console.log(songQueNames);
 
