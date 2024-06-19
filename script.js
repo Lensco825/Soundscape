@@ -150,6 +150,7 @@ function playNextAudio() {
   let lastSong = songQue[0];
   let lastColors = imageColors[0];
   if (currentSong.src.currentTime >= currentSong.src.duration) {
+    currentSong.src.pause();
     songQue.shift();
     songQue.push(lastSong);
     imageColors.shift();
@@ -168,8 +169,8 @@ function playBackAudio() {
     songQue.unshift(thisSong);
     imageColors.pop(imageColors[4]);
     imageColors.unshift(theseColors);
-    currentSong.src.play();
     reassign();
+    currentSong.src.play();
   }
 }
 
