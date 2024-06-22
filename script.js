@@ -6,6 +6,11 @@ var progressBar = document.querySelector(".progressBar");
 var scrubber = document.querySelector(".scrubber");
 var coverImg = document.querySelector(".coverImg");
 var songName = document.querySelector(".songName");
+var loadingScreen = document.querySelector(".loadingScreen");
+
+window.addEventListener('load', function() {
+  loadingScreen.classList.add('disappear');
+})
 
 var isPlaying = false;
 
