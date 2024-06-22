@@ -37,32 +37,32 @@ function song(name, author, src, img) {
 const onceInParis = new song(
   "Once In Paris",
   "Pumpupthemind",
-  "resources/once-in-paris-168895.mp3",
+  "once-in-paris-168895.mp3",
   "https://cdn.pixabay.com/audio/2024/02/04/10-16-16-251_200x200.png"
 );
 const forHer = new song(
   "For Her",
   "Liderc",
-  "resources/for-her-chill-upbeat-summel-travel-vlog-and-ig-music-royalty-free-use-202298.mp3",
+  "for-her-chill-upbeat-summel-travel-vlog-and-ig-music-royalty-free-use-202298.mp3",
   "https://cdn.pixabay.com/audio/2024/04/14/22-20-51-951_200x200.jpg"
 );
 const etheralVistas = new song(
   "Etheral Vistas",
   "Denys_Brodovskyi",
-  "resources/ethereal-vistas-191254.mp3",
+  "ethereal-vistas-191254.mp3",
   "https://cdn.pixabay.com/audio/2024/02/14/21-04-08-947_200x200.png"
 );
 const solitude = new song(
   "Solitude",
   "lucafrancini",
-  "resources/solitude-dark-ambient-electronic-197737.mp3",
+  "solitude-dark-ambient-electronic-197737.mp3",
   "https://cdn.pixabay.com/audio/2024/03/22/19-00-46-73_200x200.jpg"
 );
 
 const glossy = new song(
   "Glossy",
   "Coma-Media",
-  "resources/glossy-168156.mp3",
+  "glossy-168156.mp3",
   "https://cdn.pixabay.com/audio/2024/03/04/18-30-15-842_200x200.jpeg"
 );
 
