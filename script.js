@@ -119,14 +119,12 @@ playBtn.addEventListener("click", function () {
   if (!isPlaying) {
     isPlaying = true;
     playBtn.setAttribute("name", "pause");
-    console.log("not playing");
     currentSong.src.play();
     return;
   }
   if (isPlaying) {
     isPlaying = false;
     playBtn.setAttribute("name", "play");
-    console.log("playing!");
     currentSong.src.pause();
     return;
   }
@@ -134,7 +132,7 @@ playBtn.addEventListener("click", function () {
 
 skipForward.addEventListener("click", function () {
   if (currentSong.src.currentTime + 25 >= currentSong.src.duration) {
-    currentSong.src.currentTime = currentSong.src.duration - 1;
+    currentSong.src.currentTime = currentSong.src.duration - 0.5;
   } else {
     currentSong.src.currentTime = currentSong.src.currentTime + 25;
   }
@@ -161,8 +159,6 @@ function playNextAudio() {
     songQue.shift();
     songQue.push(lastSong);
     reassign();
-    console.log(songQue);
-    console.log(currentSong.src.src);
     currentSong.src.play();
   }
 }
@@ -177,9 +173,6 @@ function playBackAudio() {
     songQue.pop();
     songQue.unshift(thisSong);
     reassign();
-    console.log(songQue);
-    console.log(songQue[1].src.src);
-    console.log(currentSong.src.src);
     currentSong.src.play();
   }
 }
