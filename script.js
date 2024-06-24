@@ -9,7 +9,7 @@ var songName = document.querySelector(".songName");
 var loadingScreen = document.querySelector(".loadingScreen");
 
 window.addEventListener('load', function() {
-  loadingScreen.classList.add('disappear');
+  loadingScreen.style.display = 'none';
 })
 
 var isPlaying = false;
