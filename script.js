@@ -83,8 +83,8 @@ function reassign() {
     queueImages[i].setAttribute("src", `${songQue[i].img}`);
   }
 
-  currentSong.src = songQue[0].src;
   currentSong = songQue[0];
+  currentSong.src = songQue[0].src;
   songName.textContent = songQue[0].name;
   coverImg.style.backgroundImage = `url('${songQue[0].img}')`;
   currentSong.src.duration = 0;
@@ -156,11 +156,13 @@ function playNextAudio() {
   let lastColors = imageColors[0];
   if (currentSong.src.currentTime >= currentSong.src.duration) {
     currentSong.src.pause();
-    songQue.shift();
-    songQue.push(lastSong);
     imageColors.shift();
     imageColors.push(lastColors);
+    songQue.shift();
+    songQue.push(lastSong);
     reassign();
+    console.log(songQue);
+    console.log(currentSong.src.src);
     currentSong.src.play();
   }
 }
@@ -170,11 +172,14 @@ function playBackAudio() {
   let theseColors = imageColors[4];
   if (currentSong.src.currentTime <= 0) {
     currentSong.src.pause();
-    songQue.pop(songQue[4]);
-    songQue.unshift(thisSong);
-    imageColors.pop(imageColors[4]);
+    imageColors.pop();
     imageColors.unshift(theseColors);
+    songQue.pop();
+    songQue.unshift(thisSong);
     reassign();
+    console.log(songQue);
+    console.log(songQue[1].src.src);
+    console.log(currentSong.src.src);
     currentSong.src.play();
   }
 }
