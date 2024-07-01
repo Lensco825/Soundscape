@@ -3,6 +3,7 @@ var playBtn = document.getElementById("playPause");
 var skipForward = document.getElementById("playForward");
 var skipBack = document.getElementById("playBack");
 var progressBar = document.querySelector(".progressBar");
+var progressContainer = document.querySelector('.progressContainer');
 var scrubber = document.querySelector(".scrubber");
 var coverImg = document.querySelector(".coverImg");
 var songName = document.querySelector(".songName");
@@ -11,6 +12,17 @@ var loadingScreen = document.querySelector(".loadingScreen");
 window.addEventListener('load', function() {
   loadingScreen.style.display = 'none';
 })
+
+
+
+var progressContainerCords = {
+  left: progressContainer.getBoundingClientRect().left,
+  right: progressContainer.getBoundingClientRect().right
+};
+
+var fullWidth = progressContainerCords.right - progressContainerCords.left;
+
+
 
 var isPlaying = false;
 
@@ -129,6 +141,22 @@ playBtn.addEventListener("click", function () {
     return;
   }
 });
+
+progressContainer.addEventListener('click', (e) => {
+  let x = e.clientX - progressContainerCords.left;
+  let percentage = (x / fullWidth) * 100;
+  currentSong.src.currentTime = currentSong.src.duration * (percentage / 100);
+  progressBar.style.width = `${percentage}%`;
+});
+
+progressContainer.addEventListener('dragover', (e) => {
+  let x = e.clientX - progressContainerCords.left;
+  let percentage = (x / fullWidth) * 100;
+  currentSong.src.currentTime = currentSong.src.duration * (percentage / 100);
+  progressBar.style.width = `${percentage}%`;
+});
+
+
 
 skipForward.addEventListener("click", function () {
   if (currentSong.src.currentTime + 25 >= currentSong.src.duration) {
