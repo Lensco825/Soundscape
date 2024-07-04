@@ -149,14 +149,6 @@ progressContainer.addEventListener('click', (e) => {
   progressBar.style.width = `${percentage}%`;
 });
 
-progressContainer.addEventListener('dragover', (e) => {
-  let x = e.clientX - progressContainerCords.left;
-  let percentage = (x / fullWidth) * 100;
-  currentSong.src.currentTime = currentSong.src.duration * (percentage / 100);
-  progressBar.style.width = `${percentage}%`;
-});
-
-
 
 skipForward.addEventListener("click", function () {
   if (currentSong.src.currentTime + 25 >= currentSong.src.duration) {
